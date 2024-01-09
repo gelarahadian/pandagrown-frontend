@@ -1,0 +1,62 @@
+@use 'colors';
+
+body {
+  font-size: 16px;
+}
+
+a {
+  text-decoration: none;
+  color          : colors.$green;
+}
+
+.bg-red {
+  background-color: red;
+}
+
+.login-form input[type='checkbox'] {
+  height: 18px;
+  width : 18px;
+  color : #200E32;
+}
+
+input {
+  height       : 57px;
+  border-radius: 5px;
+  border       : solid 1px #D9D9D9;
+  box-shadow   : 0 1px 4px 3px rgba(0, 0, 0, 0.05);
+  padding      : 16px;
+}
+
+input.green:focus-visible, textarea.green:focus-visible {
+  outline: solid 2px colors.$green;
+}
+
+.btn-gray {
+  background-color: #D9D9D9;
+  height          : 57px;
+  border-radius   : 5px;
+}
+
+.modal {
+  height : 775px;
+  width  : 598px;
+  padding: 78px 72px;
+}
+
+.div-image {
+  box-shadow: 4px 0 13px 10px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner {
+  animation: spinner 1.5s linear infinite;
+}
+

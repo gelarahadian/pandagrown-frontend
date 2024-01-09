@@ -1,0 +1,24 @@
+@keyframes spinner {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+}
+.loading-spinner {
+    animation: spinner 15s linear infinite;
+}
+
+.spinner-container {
+    position:absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: grid;
+    place-items: center; /* Center the content vertically and horizontally */
+    height: 100vh;
+    z-index: 9999;
+    // opacity: 0.5;
+}

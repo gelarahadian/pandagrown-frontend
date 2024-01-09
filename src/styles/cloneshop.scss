@@ -1,0 +1,377 @@
+
+.cart-item {
+    height: 120px;
+    
+    img {
+        width: 32px;
+        height: 32px;
+    }
+}
+
+.modal-checkout {
+    width: 627px;
+    // min-height: 700px;
+
+    .checkout-item {
+        .img-plant-logo {
+            width: 70px;
+            height: 70px;
+        }
+    }
+
+    .purchase {
+        box-shadow: 0 -4px 5px 0px rgb(0 0 0 / 0.3);
+		border-bottom-left-radius: 8px;
+		border-bottom-right-radius: 8px;
+    }
+
+	.purchase.disabled {
+		background-color: #9B9B9B !important;
+	}
+}
+
+.modal-success-purchase {
+    width: 475px;
+    min-height: 650px;
+}
+
+// .clone-item {
+	// .img-plant {
+			// img {
+					// width: 50px;
+					// height: 135px;
+			// }
+	// }
+
+	// .items-end {
+	// 	height: 115px;
+	// }
+// }
+
+.clone-item:hover {
+	box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.2), 0 4px 6px -4px rgb(0 0 0 / 0.2);
+}
+
+.clone-item-mobile {
+	.img-plant {
+		img {
+			width: 50px;
+			height: 50px;
+			object-fit: cover;
+		}
+	}
+}
+
+.modal-buy {
+    width: 365px;
+    // min-height: 700px;
+
+    .img-plant-logo {
+        height: 220px;
+        background-size: cover;
+    }
+
+    .plant-info {
+        padding-top: 220px;
+    }
+
+    .slider {
+        color: green;
+        margin-top: 15px;
+    }
+
+    .MuiSlider-rail {
+        height: 8px;
+        color: gray;
+    }
+
+    .MuiSlider-track {
+        height: 8px;
+    }
+}
+
+.modal-buy-tablet {
+	width: 650px;
+}
+
+.mycart-mobile {
+  box-shadow: 0 0px 15px 0px rgba(0, 0, 0, 0.5);
+}
+
+.confirmation {
+    
+    .checkout-item {
+        height: 120px;
+
+        .img-plant-logo {
+            width: 32px;
+            height: 32px;
+        }
+    }
+}
+
+
+.dropdown {
+    position: relative;
+}
+
+.menu {
+    position: absolute;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.15);
+    list-style-type: none;
+    left: auto!important;
+    right: 0!important;
+    margin: 55px 0px;
+    padding: 0;
+    width: 160px;
+}
+
+.menu > li {
+    margin: 0;
+    height: 35px;
+    padding-left: 15px;
+    font-size: 13px;
+    background-color: white;
+}
+
+.menu > li:hover {
+    background-color: lightgray;
+}
+
+.menu > li > button {
+    width: 100%;
+    height: 100%;
+    text-align: left;
+}
+
+.cart-item:hover .BsnNQ {
+	color: var(--neutralPrimaryAlt);
+	// visibility: visible
+}
+
+.cart-item:hover .BsnNQ:hover.AL3kQ {
+	background: #fef2f3;
+	color: #e81123
+}
+
+.cart-item:hover .BsnNQ:hover.y5jgc {
+	background: #442726;
+	color: #f1707b
+}
+
+.cart-item:hover .BsnNQ:hover.Tktb6 {
+	background: #dff6dd;
+	color: #107c10
+}
+
+.cart-item:hover .BsnNQ:hover.uzT44 {
+	background: #393d1b;
+	color: #92c353
+}
+
+.BsnNQ {
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	justify-content: center;
+	margin-left: 16px;
+	// visibility: hidden;
+	width: 28px
+}
+
+.BsnNQ.lZpaF {
+	margin-left: 4px
+}
+
+.BsnNQ.lZpaF.OD8Ue {
+	width: 20px
+}
+
+.cart-item:hover .BsnNQ:hover.AL3kQ {
+	background: #fef2f3;
+	color: #e81123
+}
+
+.YsOlD {
+	--b: transparent;
+	--f: var(--neutralPrimaryAlt);
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	background: var(--b);
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex
+}
+
+.YsOlD.Cr9Ge:hover>.KBPxt {
+	-webkit-animation: KBPxt .62s linear 1;
+	animation: KBPxt .62s linear 1
+}
+
+.YsOlD.Cr9Ge:hover>.Z0dEQ {
+	-webkit-animation: Z0dEQ .62s linear 1;
+	animation: Z0dEQ .62s linear 1
+}
+.DUi8v {
+	fill: var(--f)
+}
+
+.DUi8v:hover {
+	--f: #e81123;
+	--b: #fef2f3
+}
+
+.DUi8v.sniML:hover {
+	--f: #f1707b;
+	--b: #442726
+}
+
+.YsOlD.Cr9Ge:hover>.KBPxt {
+	-webkit-animation: KBPxt .62s linear 1;
+	animation: KBPxt .62s linear 1
+}
+
+.YsOlD.Cr9Ge:hover>.Z0dEQ {
+	-webkit-animation: Z0dEQ .62s linear 1;
+	animation: Z0dEQ .62s linear 1
+}
+
+.YsOlD.Cr9Ge:hover>.KBPxt {
+	-webkit-animation: KBPxt .62s linear 1;
+	animation: KBPxt .62s linear 1
+}
+
+.KBPxt,.Z0dEQ {
+	width: 100%
+}
+
+@-webkit-keyframes KBPxt {
+	0% {
+		-webkit-transform: rotate(0);
+		transform: rotate(0)
+	}
+
+	22% {
+		-webkit-transform: rotate(10deg) translateY(-2.6px);
+		transform: rotate(10deg) translateY(-2.6px)
+	}
+
+	33% {
+		-webkit-transform: rotate(-5deg) translateY(-4px);
+		transform: rotate(-5deg) translateY(-4px)
+	}
+
+	55% {
+		-webkit-transform: rotate(-2deg) translateY(-1.3px);
+		transform: rotate(-2deg) translateY(-1.3px)
+	}
+
+	88% {
+		-webkit-transform: rotate(0) translateY(0);
+		transform: rotate(0) translateY(0)
+	}
+
+	to {
+		-webkit-transform: rotate(0) translateY(0);
+		transform: rotate(0) translateY(0)
+	}
+}
+
+@keyframes KBPxt {
+	0% {
+		-webkit-transform: rotate(0);
+		transform: rotate(0)
+	}
+
+	22% {
+		-webkit-transform: rotate(10deg) translateY(-2.6px);
+		transform: rotate(10deg) translateY(-2.6px)
+	}
+
+	33% {
+		-webkit-transform: rotate(-5deg) translateY(-4px);
+		transform: rotate(-5deg) translateY(-4px)
+	}
+
+	55% {
+		-webkit-transform: rotate(-2deg) translateY(-1.3px);
+		transform: rotate(-2deg) translateY(-1.3px)
+	}
+
+	88% {
+		-webkit-transform: rotate(0) translateY(0);
+		transform: rotate(0) translateY(0)
+	}
+
+	to {
+		-webkit-transform: rotate(0) translateY(0);
+		transform: rotate(0) translateY(0)
+	}
+}
+
+.hn2lg {
+	-webkit-transform-origin: 72% 40%;
+	transform-origin: 72% 40%
+}
+
+.IKEiQ {
+	-webkit-transform-origin: 72% 77%;
+	transform-origin: 72% 77%
+}
+
+@-webkit-keyframes Z0dEQ {
+	0% {
+		-webkit-transform: rotate(0);
+		transform: rotate(0)
+	}
+
+	33% {
+		-webkit-transform: rotate(-5deg);
+		transform: rotate(-5deg)
+	}
+
+	55% {
+		-webkit-transform: rotate(0);
+		transform: rotate(0)
+	}
+}
+
+@keyframes Z0dEQ {
+	0% {
+		-webkit-transform: rotate(0);
+		transform: rotate(0)
+	}
+
+	33% {
+		-webkit-transform: rotate(-5deg);
+		transform: rotate(-5deg)
+	}
+
+	55% {
+		-webkit-transform: rotate(0);
+		transform: rotate(0)
+	}
+}
+
+.YsOlD.Cr9Ge:hover>.Z0dEQ {
+	-webkit-animation: Z0dEQ .62s linear 1;
+	animation: Z0dEQ .62s linear 1
+}
+
+.KBPxt,.Z0dEQ {
+	width: 100%
+}
+
+.Z0dEQ {
+	margin-left: -100%
+}
+
+.QpoLy {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	min-width: 44px
+}

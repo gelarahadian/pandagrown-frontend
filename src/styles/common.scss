@@ -1,0 +1,42 @@
+@use 'colors';
+
+.btn-green {
+  height          : 57px;
+  padding         : 16px 0;
+  background-color: colors.$green;
+  color           : white;
+  font-weight     : 700;
+  border-radius   : 5px;
+}
+
+input {
+  height: 57px;
+  width : 100%;
+  border: solid 1px colors.$gray;
+}
+
+input.error {
+  outline: solid 2px red;
+}
+
+textarea {
+  width  : 100%;
+  border : solid 1px colors.$gray;
+  padding: 16px;
+}
+
+textarea:focus-visible {
+  outline: none;
+}
+
+input:focus-visible {
+  outline: none;
+}
+
+.h-57 {
+  height: 57px;
+}
+
+button:disabled {
+  background-color: colors.$gray;
+}

@@ -1,0 +1,15 @@
+.plant-item {
+  height    : 156px;
+  box-shadow: 0 4px 28px 0px rgba(0, 0, 0, 0.05);
+
+  img {
+    margin-left: 2px;
+    margin-top: 8px;
+    height: 147px;
+    width : 135px;
+  }
+
+  .text-black-half {
+    color: rgba(0, 0, 0, 0.5);
+  }
+}

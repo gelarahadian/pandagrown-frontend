@@ -1,0 +1,118 @@
+@use 'colors';
+
+.w-368 {
+  width: 368px;
+}
+
+.topbar {
+  height       : 128px;
+  margin-bottom: 60px;
+
+  .logo {
+    margin-left: 88px;
+    margin-top : 25px;
+    height     : 70px;
+    width      : 144px;
+  }
+
+  .navs {
+    margin-left : auto;
+    margin-right: 129px;
+    margin-top  : 60px;
+
+    a {
+      margin-right: 70px;
+    }
+
+    a:last-child {
+      margin-right: 0;
+    }
+  }
+
+  box-shadow: 0 4px 34px 0 rgba(0, 0, 0, 0.25);
+}
+
+.btn-skip {
+  color: colors.$green;
+
+  .info-box {
+    margin-top   : 2px;
+    margin-bottom: 2px;
+    border       : solid 1px colors.$green;
+    border-radius: 4px;
+    font-size    : 10px;
+    padding      : 0 5px;
+    line-height  : 18px;
+  }
+}
+
+.card {
+  border-radius: 5px;
+  border       : solid 1px colors.$gray;
+
+  .card-title {
+    background-color       : rgba(0, 0, 0, 0.05);
+    border-top-left-radius : 5px;
+    border-top-right-radius: 5px;
+    padding                : 16px 29px;
+  }
+}
+
+.btn-photo {
+  height          : 157px;
+  width           : 157px;
+  background-color: colors.$gray;
+
+  label {
+    border-radius   : 50%;
+    background-color: white;
+    cursor: pointer;
+
+    // img {
+    //   height: 24px;
+    //   width : 24px;
+    //   cursor: pointer;
+    // }
+  }
+}
+
+.form-row {
+  .label-control {
+    line-height  : 57px;
+    text-align   : right;
+    width        : 210px;
+    padding-right: 24px;
+    float        : left;
+  }
+
+  .control-container {
+    margin-left : 210px;
+    margin-right: 70px;
+
+    select {
+      width : 100%;
+      height: 57px;
+      border: solid 1px colors.$gray;
+      padding: 12px;
+      border-radius: 5px;
+    }
+    select:focus-visible {
+      outline: solid 1px colors.$green;
+    }
+
+    label {
+      margin-top   : 5px;
+      margin-bottom: 5px;
+      display      : block;
+    }
+  }
+
+  margin-bottom: 10px;
+}
+
+.mobile-account-info {
+
+  .react-datepicker-wrapper {
+    width: 100%;
+  }
+}

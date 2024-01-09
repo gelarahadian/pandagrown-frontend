@@ -1,0 +1,167 @@
+
+  .greenhouse-plant-details {
+    width: calc(100% - 240px);
+    // padding: 16px 24px;
+      
+    .plant-grow-state{
+
+      .slider {
+        position: relative;
+        // height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(255,255,255,0.5);
+      }
+          
+      .slide {
+        opacity: 0;
+        transition-duration: 1s ease;
+      }
+      
+      .slide.active {
+        opacity: 1;
+        transition-duration: 1s;
+        transform: scale(1.08);
+      }
+    }
+  }
+
+
+.plant-card-mobile {
+  background-color: white;
+  
+  .plant-image-mobile img{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .plant-grow-state {
+    height: 85px;
+
+    .canvas-plant-grow {
+      width: 100%;
+    }
+  }
+}
+
+.dropdown {
+  position: relative;
+}
+
+.menu {
+  position: absolute;
+  box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.15);
+  list-style-type: none;
+  left: auto!important;
+  right: 0!important;
+  margin: 55px 0px;
+  padding: 0;
+  width: 160px;
+}
+
+.menu > li {
+  margin: 0;
+  height: 35px;
+  padding-left: 15px;
+  font-size: 13px;
+  background-color: white;
+}
+
+.menu > li:hover {
+  background-color: lightgray;
+}
+
+.menu > li > button {
+  width: 100%;
+  height: 100%;
+  text-align: left;
+}
+
+// .plant-state {
+//   margin-top: 65px;
+// }
+
+// .graph-background {
+//   position: absolute;
+//   width: 100%;
+//   height: 9px;
+//   border-radius: 100px;
+//   background-color: rgba(0, 0, 0, 0.1);
+// }
+
+// .graph-top-background {
+//   position: absolute;
+//   width: 100%;
+//   height: 9px;
+//   border-radius: 100px;
+//   background-color: rgba(0, 0, 0, 0.0);
+// }
+
+// .circle-before {
+//   position: absolute;
+//   width: 9px;
+//   height: 9px;
+//   border-radius: 50%;
+//   border-width: 1px;
+//   border-color: rgba(5, 90, 33, 1);
+//   background-color: #fff;
+// }
+
+// .circle-after {
+//   position: absolute;
+//   width: 9px;
+//   height: 9px;
+//   border-radius: 50%;
+//   border-width: 1px;
+//   border-color: #fff;
+//   background-color: rgba(5, 90, 33, 1);
+// }
+
+// .grow-step-title {
+//   position: absolute;
+//   color: #059033;
+//   font-size: 12px;
+//   font-family: Poppins;
+//   font-weight: 700;
+//   margin-top: -25px;
+// }
+
+// .grow-step-value {
+//   position: absolute;
+//   color: #000000;
+//   font-size: 10px;
+//   font-family: Poppins;
+//   font-weight: 400;
+//   margin-top: 18px;
+// }
+
+.grow-step-value__ {
+  transform: translateX(-50% + 5);
+}
+
+.tooltip {
+  position: absolute;
+  transform: translateX(50%);
+  background-color: #059033;;
+  color: #fff;
+  padding: 5px 10px 5px 10px;
+  border-radius: 100px;
+  font-size: 8px;
+  font-weight: 700;
+  line-height: normal;
+  margin-top: 15px;
+}
+
+.tooltip::before {
+  content: '';
+  position: absolute;
+  bottom: 21px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 4px;
+  border-style: solid;
+  border-color: transparent transparent #059033 transparent;
+}

@@ -1,0 +1,24 @@
+.ticket-reply {
+  overflow: auto;
+  /* Customize scrollbar track */
+  scrollbar-color: #f0f0f0 #e0e0e0;
+  scrollbar-width: thin;
+}
+
+.ticket-reply::-webkit-scrollbar {
+  height: 1rem;
+  width: 0.5rem;
+}
+
+.ticket-reply::-webkit-scrollbar-thumb {
+  --tw-border-opacity: 1;
+  background-color: rgba(217,217,227,.8);
+  border-color: rgba(255,255,255,var(--tw-border-opacity));
+  border-radius: 9999px;
+  border-width: 1px;
+}
+
+.ticket-reply::-webkit-scrollbar-thumb:hover {
+  background-color: transparent;
+  border-radius: 9999px;
+}
