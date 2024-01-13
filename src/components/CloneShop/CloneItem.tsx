@@ -1,6 +1,7 @@
 import React from "react";
 import plantImage from "assets/images/plant1.png";
-import { Item, CartItemInfo } from "pages/Dashboard/manage/CloneShop";
+import { CartItemInfo } from "pages/Dashboard/manage/CloneShop";
+import { Item } from "context/PlantContext";
 
 interface CloneItemProps {
   cards: Item[];

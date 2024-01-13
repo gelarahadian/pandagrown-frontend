@@ -5,7 +5,6 @@ import { NavLink } from "react-router-dom";
 // import Slider from '@mui/material/Slider';
 import { FaSpinner } from "react-icons/fa";
 import { toast } from "react-toastify";
-import { Item } from "pages/Dashboard/manage/CloneShop";
 import { MdClose } from "react-icons/md";
 import { Scrollbars } from "rc-scrollbars";
 import botanicare from "assets/cloneshop/botanicare.png";
@@ -22,6 +21,7 @@ import wallet_line from "../../assets/icons/Wallet_line.svg";
 import api from "../../utils/api";
 import { BiWallet } from "react-icons/bi";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
+import { Item } from "context/PlantContext";
 
 interface ModalBuyPlantProps {
   isOpen: boolean;

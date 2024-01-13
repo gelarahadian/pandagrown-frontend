@@ -28,6 +28,12 @@ function MobileLayout() {
         setTitle("Warehouse");
       } else if (currentPath.includes("/sellorder")) {
         setTitle("Sell Order");
+      } else if (currentPath.includes("/market")) {
+        setTitle("Market");
+      } else if (currentPath.includes("/inventory")) {
+        setTitle("Inventory");
+      } else if (currentPath.includes("/p2p")) {
+        setTitle("P2P");
       } else {
         setTitle("");
       }

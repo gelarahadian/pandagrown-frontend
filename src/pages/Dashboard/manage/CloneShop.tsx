@@ -22,22 +22,8 @@ import "react-toastify/dist/ReactToastify.css";
 import filter from "assets/images/Filter.png";
 import { Scrollbars } from "rc-scrollbars";
 import { FaSearch, FaCheck } from "react-icons/fa";
-
-export interface Item {
-  id: number;
-  name: string;
-  stock: number;
-  image: string;
-  buy_price: number;
-  harvest_rate: number;
-  clone_rooting_period: number;
-  vegetation_mass_period: number;
-  flowering_preharvest_period: number;
-  harvest_period: number;
-  curing_period: number;
-  drying_period: number;
-  packing_period: number;
-}
+import { useCart } from "context/CartContext";
+import { Item, usePlant } from "context/PlantContext";
 
 export interface CartItemInfo {
   id: number;
@@ -62,22 +48,41 @@ const CloneShop = () => {
   const [showBuyModal, setShowBuyModal] = useState(false);
   const [showSpeedUpModal, setShowSpeedUpModal] = useState(false);
   const [selectedCartItem, setSelectedCartItem] = useState<Item>();
-  const [items, setItems] = useState<Item[]>([]);
-  const [cartItems, setCartItems] = useState<CartItemInfo[]>([]);
-  const [showPurchaseModal, setShowPurchaseModal] = useState(false);
-  const [showSuccessPurchaseModal, setShowSuccessPurchaseModal] =
-    useState(false);
-  const [searchQuery, setSearchQuery] = useState("");
-  const [sort, setSort] = useState("-purchased_count");
   const [stockInCart, setStockInCart] = useState(0);
   const [priceSum, setPriceSum] = useState(0);
-  const [loadingCloneItem, setLoadingCloneItem] = useState(true);
-  const [loadingCloneCart, setLoadingCloneCart] = useState(true);
   const [loadingAddCart, setLoadingAddCart] = useState(false);
-  const [loadingConfirm, setLoadingConfirm] = useState(false);
   const [open, setOpen] = useState(false);
   const [cloneContainerWidth, setCloneContainerWidth] = useState<number>(0);
   const myCloneContainerRef = useRef<HTMLDivElement | null>(null);
+
+  const {
+    loadingCloneCart,
+    cartItems,
+    setCartItems,
+    showPurchaseModal,
+    setShowPurchaseModal,
+    getPGABalance,
+    handleGetCartItems,
+    onCheckout,
+    onDelCart,
+    onClosePurchase,
+    onCloseSuccessPurchase,
+    loadingConfirm,
+    setLoadingConfirm,
+    showSuccessPurchaseModal,
+    setShowSuccessPurchaseModal,
+    onPurchase,
+  } = useCart();
+
+  const {
+    loadingCloneItem,
+    items,
+    searchQuery,
+    setSearchQuery,
+    sort,
+    setSort,
+    handleGetItem,
+  } = usePlant();
 
   const column = cloneContainerWidth < 720;
 
@@ -105,49 +110,6 @@ const CloneShop = () => {
       const { width } = myCloneContainerRef.current!.getBoundingClientRect();
       setCloneContainerWidth(width);
     }
-  };
-
-  const handleGetItem = () => {
-    setLoadingCloneItem(true);
-    setTimeout(() => {
-      api
-        .get(`shop/seed/list/?search=${searchQuery}&ordering=${sort}`, {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        })
-        .then((res) => {
-          const data = res.data;
-          if (res.data && Object.keys(data).length > 0) {
-            // data.map
-            const transformedData: Item[] = data.map((item: any) => {
-              return {
-                id: item.id,
-                name: item.name,
-                stock: item.stock,
-                image: item.cover_img,
-                buy_price: item.buy_price,
-                harvest_rate: item.harvest_rate,
-                clone_rooting_period: 14,
-                vegetation_mass_period: item.vegetation_mass_period,
-                flowering_preharvest_period: item.flowering_preharvest_period,
-                harvest_period: item.harvest_period,
-                curing_period: item.curing_period,
-                drying_period: item.drying_period,
-                packing_period: item.packing_period,
-              };
-            });
-            setItems(transformedData);
-          }
-          // notice
-          setLoadingCloneItem(false);
-          console.log("get seed data", data);
-        })
-        .catch((err) => {
-          console.log("get seed data error", err);
-          setLoadingCloneItem(false);
-        });
-    }, 100);
   };
 
   const onCloseBuyModal = () => {
@@ -304,27 +266,6 @@ const CloneShop = () => {
     // }
   };
 
-  const getPGABalance = (
-    botani_state: number,
-    rhizo_state: number,
-    silica_state: number
-  ) => {
-    let pga_amount = 0;
-    if (botani_state == 1) {
-      pga_amount += user.botaniPrice;
-    }
-
-    if (rhizo_state == 1) {
-      pga_amount += user.rhizoPrice;
-    }
-
-    if (silica_state == 1) {
-      pga_amount += user.silicaPrice;
-    }
-
-    return pga_amount;
-  };
-
   const handleSelectItem = (idx: number) => {
     setSelectedCartItem(items.find((item) => item.id === idx));
     const existingCartItem = cartItems.find((item) => item.seed_id === idx);
@@ -343,125 +284,6 @@ const CloneShop = () => {
     }));
     setShowBuyModal(true);
     // alert(id);
-  };
-
-  const handleGetCartItems = () => {
-    // setCartItems(items);
-    setLoadingCloneCart(true);
-    setTimeout(() => {
-      api
-        .get(`shop/${user.user_id}/cart/`, {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        })
-        .then((res) => {
-          const data = res.data;
-          if (res.data && Object.keys(data).length > 0) {
-            const transformedData: CartItemInfo[] = data.map((item: any) => {
-              return {
-                id: item.id,
-                user_id: item.user,
-                seed_id: item.seed,
-                name: item.name,
-                purchase_amount: item.purchased_amount,
-                method_botanicare: item.method_botanicare,
-                method_rhizo: item.method_rhizo,
-                method_silica: item.method_silica,
-                pga_amount: getPGABalance(
-                  item.method_botanicare,
-                  item.method_rhizo,
-                  item.method_silica
-                ),
-                payment_method: item.payment_method,
-                price_sum: item.price_sum,
-                image: item.cover_img,
-                buy_price: item.seed_price,
-              };
-            });
-
-            setCartItems(transformedData);
-          }
-          // notice
-          console.log("get cart data", data);
-          setLoadingCloneCart(false);
-        })
-        .catch((err) => {
-          console.log("get cart data error", err);
-          setLoadingCloneCart(false);
-        });
-    }, 200);
-  };
-
-  const onPurchase = () => {
-    setLoadingConfirm(true);
-    api
-      .post(`shop/${user.user_id}/purchase/`, {})
-      .then((res: any) => {
-        const data = res.data;
-        // toast.success("add success.");
-        if (data.type == "success") {
-          localStorage.setItem("balance", data.balance); // set token -> this means logged in
-          setUser((prevUser: typeof MyAuthContext) => ({
-            ...prevUser,
-            balance: data.balance,
-          }));
-          localStorage.setItem("pga_balance", data.pga_balance); // set token -> this means logged in
-          setUser((prevUser: typeof MyAuthContext) => ({
-            ...prevUser,
-            pga_balance: data.pga_balance,
-          }));
-          handleGetItem();
-        }
-        setShowPurchaseModal(false);
-        setShowSuccessPurchaseModal(true);
-        setCartItems([]);
-        setLoadingConfirm(false);
-      })
-      .catch((err) => {
-        const responseData = err.response.data;
-        // Handle the response data in case of an error
-        // You can access the properties of the responseData object
-
-        if (responseData.type == "failure") {
-          // alert(responseData.message);
-          toast.error(responseData.detail);
-        } else {
-          toast.error("Confirm failed.");
-        }
-
-        console.log(err);
-        setLoadingConfirm(false);
-      });
-  };
-
-  const onDelCart = (idx: number) => {
-    // console.log(idx);
-    // setLoadingCloneCart(true);
-    api
-      .delete(`shop/cart/${idx}/`, {})
-      .then((res: any) => {
-        toast.success("delete cart success.");
-        setCartItems(cartItems.filter((item) => item.id !== idx));
-        // setLoadingCloneCart(false);
-      })
-      .catch((err) => {
-        toast.error("delete failed.");
-        console.log(err);
-        // setLoadingCloneCart(false);
-      });
-  };
-
-  const onClosePurchase = () => {
-    setShowPurchaseModal(false);
-  };
-
-  const onCheckout = () => {
-    setShowPurchaseModal(true);
-  };
-
-  const onCloseSuccessPurchase = () => {
-    setShowSuccessPurchaseModal(false);
   };
 
   const onBack = () => {
