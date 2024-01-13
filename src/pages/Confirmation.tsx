@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 import LoadingSpinner from "components/common/LoadingSpinner";
 import ConfirmationMobile from "components/CloneShop/Mobile/ConfirmationMobile";
 import BuySuccessMobiles from "components/CloneShop/Mobile/BuySuccessMobile";
-import { CartItemInfo } from "./Dashboard/CloneShop";
+import { CartItemInfo } from "./Dashboard/manage/CloneShop";
 import "react-toastify/dist/ReactToastify.css";
 import api from "utils/api";
 import "styles/cloneshop.scss";

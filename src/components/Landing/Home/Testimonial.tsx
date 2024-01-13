@@ -21,17 +21,6 @@ const Testimonial = ({
   const isMobile = useMobileContext();
   const isTablet = useTabletContext();
 
-  if (isMobile || isTablet)
-    return (
-      <MobileContainer>
-        <img className="absolute rounded-full" src={avatar} />
-        <div className="">
-          <label className="text-center pb-2 block">{name}</label>
-          <p>{description}</p>
-        </div>
-      </MobileContainer>
-    );
-
   return (
     <Container className="space-x-6">
       <div className="!ml-0 text-center rounded-full w-16 h-16">

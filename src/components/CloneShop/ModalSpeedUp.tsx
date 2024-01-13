@@ -3,7 +3,7 @@ import { useTabletContext } from "context/TabletContext";
 import { MyAuthContext } from "context/AuthContext";
 import { NavLink } from "react-router-dom";
 import { FaSpinner } from "react-icons/fa";
-import { Item } from "pages/Dashboard/CloneShop";
+import { Item } from "pages/Dashboard/manage/CloneShop";
 import { MdClose } from "react-icons/md";
 import botanicare from "assets/cloneshop/botanicare.png";
 import rhizo from "assets/cloneshop/rhizo.png";

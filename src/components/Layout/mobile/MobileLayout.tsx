@@ -78,7 +78,9 @@ function MobileLayout() {
     <>
       <Navbar isHideNavbar={isHideNavbar} onHideNavbar={onHideNavbar} />
       <div
-        className={`${isHideNavbar ? "px-2" : ""} page-wrapper w-full !ml-0 ${
+        className={`${
+          isHideNavbar ? "px-2" : ""
+        } page-wrapper flex flex-col w-full !ml-0 ${
           isHideNavbar ? "ease-in " : "ease-out pl-[88px]"
         } duration-200 transition-all`}
         style={{

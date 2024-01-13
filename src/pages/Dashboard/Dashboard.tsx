@@ -7,17 +7,19 @@ import { MyAuthContext } from "context/AuthContext";
 import { useContext, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useMobileContext } from "context/MobileContext";
+import { useTabletContext } from "context/TabletContext";
 
 const Dashboard = () => {
   const { user } = useContext(MyAuthContext);
   const isMobile = useMobileContext();
+  const isTablet = useTabletContext();
 
   const [usd_balance, setUsdBalance] = useState("-1");
   const [invest_fund, setInvestFund] = useState("-1");
   const [total_profit, setTotalProfit] = useState("-1");
   const location = useLocation();
 
-  let sidebar = <></>;
+  let sidebar = null;
   if (location.pathname.includes("/manage")) {
     sidebar = <Sidebar />;
   } else if (location.pathname.includes("/navhistory")) {
@@ -33,12 +35,16 @@ const Dashboard = () => {
   } else if (location.pathname.includes("/settings")) {
     sidebar = <SidebarWallet />;
   } else {
-    sidebar = <></>;
+    sidebar = null;
   }
   return (
     <>
-      {!isMobile && sidebar}
-      <div className="w-full h-screen flex justify-center items-center flex-col">
+      {!isMobile && !isTablet && sidebar}
+      <div
+        className={`w-full h-full flex justify-center items-center flex-col ${
+          sidebar && !isMobile && !isTablet && "pl-[392px]"
+        }`}
+      >
         <div className="relative flex justify-center">
           <h1 className="text-center text-3xl md:text-5xl font-bold absolute top-8">
             Welcome, {user.username}!

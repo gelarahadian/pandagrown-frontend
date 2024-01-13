@@ -33,6 +33,14 @@ function Layout() {
 
   const currentPath = location.pathname;
   useEffect(() => {
+    if (currentPath.includes("/manage")) {
+      setSidebarType(0);
+    } else if (currentPath.includes("/settings")) {
+      setSidebarType(1);
+    } else if (currentPath.includes("/profile")) {
+      setSidebarType(2);
+    }
+
     if (currentPath == "/cloneshop") {
       setTitle("Clone Store");
       setSidebarType(0);
@@ -47,6 +55,15 @@ function Layout() {
       setSidebarType(0);
     } else if (currentPath == "/sellorder") {
       setTitle("Sell Order");
+      setSidebarType(0);
+    } else if (currentPath == "/market") {
+      setTitle("Market");
+      setSidebarType(0);
+    } else if (currentPath == "/inventory") {
+      setTitle("Inventory");
+      setSidebarType(0);
+    } else if (currentPath == "/p2p") {
+      setTitle("P2P");
       setSidebarType(0);
     } else if (currentPath.includes("/deposit")) {
       setTitle("Deposit");
@@ -187,7 +204,11 @@ function Layout() {
       />
       <div className="absolute top-12 right-12 z-20">
         <button
-          onClick={() => setShowNavbar(!showNavbar)}
+          onClick={() => {
+            isTablet
+              ? setSidebarOpen(!sidebarOpen)
+              : setShowNavbar(!showNavbar);
+          }}
           className="p-6 bg-[#059033]/10 hover:bg-[#059033]/20"
         >
           <img src={topButtonIcon} alt="top button icon" />
@@ -199,8 +220,12 @@ function Layout() {
           backgroundImage: `url(${bgDashboard})`,
           backgroundSize: "cover, contain",
         }}
-        className={`page-wrapper ${
-          showNavbar ? "pl-[88px] ease-in" : "ease-out"
+        className={`page-wrapper h-screen ${
+          isMobile || isTablet
+            ? "pl-[88px] ease-in"
+            : showNavbar
+            ? "pl-[88px] ease-in"
+            : "ease-out"
         } transition-all duration-200  `}
       >
         {/*<Scrollbars style={{ width: '100%', height: '100vh' }}>*/}

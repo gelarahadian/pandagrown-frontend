@@ -1,6 +1,6 @@
 import React from "react";
 import plantImage from "assets/images/plant1.png";
-import { Item } from "pages/Dashboard/CloneShop";
+import { Item } from "pages/Dashboard/manage/CloneShop";
 
 interface CloneItemMobileProps {
   cards: Item[];

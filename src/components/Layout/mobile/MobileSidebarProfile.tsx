@@ -5,7 +5,12 @@ import { NavLink } from "react-router-dom";
 import MyWallet from "components/common/MyWallet";
 import { MyAuthContext } from "context/AuthContext";
 import { Scrollbars } from "rc-scrollbars";
-import { FaMapMarkerAlt, FaUser, FaUserPlus } from "react-icons/fa";
+import {
+  FaAngleLeft,
+  FaMapMarkerAlt,
+  FaUser,
+  FaUserPlus,
+} from "react-icons/fa";
 import wallet from "assets/icons/Wallet.svg";
 import MobileFloatButton from "components/common/MobileFloatButton";
 import SidebarBottom from "../../common/SidebarBottom";
@@ -25,7 +30,7 @@ const MobileSidebarProfile: React.FC<MobileSidebarProfileProps> = (props) => {
       <div className="menubar relative z-50 bg-[#041D04] text-white pt-24 px-8">
         <div className="w-full flex">
           <div className="w-4/5 user-info flex items-center">
-            <NavLink to="/account">
+            <NavLink to="/dashboard/profile/account">
               <img
                 src={user?.profile_avatar}
                 className="user-avatar h-10 w-10 mx-4"
@@ -43,17 +48,16 @@ const MobileSidebarProfile: React.FC<MobileSidebarProfileProps> = (props) => {
               </div>
             </div>
           </div>
-          <div className="w-1/5 text-right">
-            <MobileFloatButton onClick={onHideSidebar} />
+          <div className="absolute top-8 left-8 text-white text-right cursor-pointer">
+            <FaAngleLeft className="w-6 h-6" onClick={onHideSidebar} />
           </div>
         </div>
         <div className="mt-8 mb-11">
           <MyWallet />
         </div>
-        <hr className="text-gray mb-10" />
         <div className="ml-5 pb-8">
           <NavLink
-            to="/account"
+            to="/dashboard/profile/account"
             className="text-md mt-6 flex"
             onClick={onHideSidebar}
           >
@@ -61,7 +65,7 @@ const MobileSidebarProfile: React.FC<MobileSidebarProfileProps> = (props) => {
             <span>Profile</span>
           </NavLink>
           <NavLink
-            to="/referral"
+            to="/dashboard/profile/referral"
             className="text-md mt-6 flex"
             onClick={onHideSidebar}
           >

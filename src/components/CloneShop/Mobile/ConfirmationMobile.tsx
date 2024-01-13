@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { MyAuthContext } from "context/AuthContext";
 import { NavLink } from "react-router-dom";
 // import Select from 'react-select'
-import { CartItemInfo } from "pages/Dashboard/CloneShop";
+import { CartItemInfo } from "pages/Dashboard/manage/CloneShop";
 // import { FaBitcoin } from "react-icons/fa";
 // import { FaDollarSign } from "react-icons/fa";
 import { FaSpinner } from "react-icons/fa";

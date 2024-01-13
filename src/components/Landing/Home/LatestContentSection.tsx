@@ -128,11 +128,18 @@ const LatestContentSection = () => {
     return (
       <>
         <Background style={{ backgroundImage: `url(${leafBg})` }}>
-          <div ref={sectionPlantRef}>
-            <div className="text-center animation-scroll-fade-in">
-              <Title>Latest Updates</Title>
+          <div
+            ref={sectionPlantRef}
+            className={`animation-scroll-fade-in max-w-[1440px] mx-auto ${
+              isMobile ? "px-8 py-14" : isTablet ? "px-14 py-24" : "py-32 px-24"
+            }`}
+          >
+            <div className="animation-scroll-fade-in">
+              <Title className="text-white text-5xl font-bold leading-tight mb-20">
+                Latest Updates
+              </Title>
             </div>
-            <Container className="animation-scroll-fade-in">
+            <div className={`animation-scroll-fade-in `}>
               <div className="readyFor">
                 {plants?.slice(0, 3).map((plant, index) => (
                   <div className="mt-6" key={index}>
@@ -145,34 +152,41 @@ const LatestContentSection = () => {
                   </div>
                 ))}
               </div>
-            </Container>
+            </div>
           </div>
-
-          <div
-            className="relative overflow-hidden bg-[#222321aa] pt-20 px-40 "
-            ref={sectionTestimonialRef}
-          >
-            <div className="testimonial relative">
-              <div className="w-full animation-scroll-fade-in-left">
-                <Title className="text-white text-5xl font-bold leading-tight mb-20">
-                  Testimonials
-                </Title>
-              </div>
-              <div className="w-full animation-scroll-fade-in-right">
-                <TestimonialContainer>
-                  <div className="monial-container">
-                    <Slider {...TestimonialSliderSettings}>
-                      {testimonials?.map((testimonial) => (
-                        <Testimonial
-                          avatar={testimonial.avatar}
-                          key={testimonial.id}
-                          name={testimonial.name}
-                          description={testimonial.description}
-                        />
-                      ))}
-                    </Slider>
-                  </div>
-                </TestimonialContainer>
+          <div className="bg-black/20">
+            <div
+              className={`relative overflow-hidden  max-w-[1440px] mx-auto ${
+                isMobile
+                  ? "px-8 py-14"
+                  : isTablet
+                  ? "px-14 py-24"
+                  : "py-32 px-24"
+              }`}
+              ref={sectionTestimonialRef}
+            >
+              <div className="testimonial relative">
+                <div className="w-full animation-scroll-fade-in-left">
+                  <Title className="text-white text-5xl font-bold leading-tight mb-20">
+                    Testimonials
+                  </Title>
+                </div>
+                <div className="w-full animation-scroll-fade-in-right">
+                  <TestimonialContainer>
+                    <div className="monial-container">
+                      <Slider {...TestimonialSliderSettings}>
+                        {testimonials?.map((testimonial) => (
+                          <Testimonial
+                            avatar={testimonial.avatar}
+                            key={testimonial.id}
+                            name={testimonial.name}
+                            description={testimonial.description}
+                          />
+                        ))}
+                      </Slider>
+                    </div>
+                  </TestimonialContainer>
+                </div>
               </div>
             </div>
           </div>
@@ -188,7 +202,11 @@ const LatestContentSection = () => {
           ref={sectionPlantRef}
           style={{ backgroundImage: `url(${leafBg})` }}
         >
-          <div className="animation-scroll-fade-in delay4 py-20 px-40">
+          <div
+            className={`animation-scroll-fade-in delay4 max-w-[1440px] mx-auto ${
+              isMobile ? "px-8 py-14" : isTablet ? "px-14 py-24" : "py-32 px-24"
+            }`}
+          >
             <Title>Latest Updates</Title>
             <div className="relative animation-scroll-fade-in-bottom delay4">
               <ItemContainer className="flex justify-between">
@@ -226,7 +244,11 @@ const LatestContentSection = () => {
                 </UpdateItem>
               </ItemContainer>
             </div>
-            <Container className="animation-scroll-fade-in">
+            <div className={`animation-scroll-fade-in`}>
+              <Title className="text-white text-5xl font-bold leading-tight mb-20">
+                Ready for you
+              </Title>
+
               <div className="readyFor">
                 <Slider {...PlantSliderSettings}>
                   {plants?.map((plant, index) => (
@@ -239,33 +261,41 @@ const LatestContentSection = () => {
                   ))}
                 </Slider>
               </div>
-            </Container>
+            </div>
           </div>
-          <div
-            className="relative overflow-hidden bg-[#222321aa] pt-20 px-40 "
-            ref={sectionTestimonialRef}
-          >
-            <div className="testimonial relative">
-              <div className="w-full animation-scroll-fade-in-left">
-                <Title className="text-white text-5xl font-bold leading-tight mb-20">
-                  Testimonials
-                </Title>
-              </div>
-              <div className="w-full animation-scroll-fade-in-right">
-                <TestimonialContainer>
-                  <div className="monial-container">
-                    <Slider {...TestimonialSliderSettings}>
-                      {testimonials?.map((testimonial) => (
-                        <Testimonial
-                          avatar={testimonial.avatar}
-                          key={testimonial.id}
-                          name={testimonial.name}
-                          description={testimonial.description}
-                        />
-                      ))}
-                    </Slider>
-                  </div>
-                </TestimonialContainer>
+          <div className="bg-black/20">
+            <div
+              className={`relative overflow-hidden  max-w-[1440px] mx-auto ${
+                isMobile
+                  ? "px-8 py-14"
+                  : isTablet
+                  ? "px-14 py-24"
+                  : "py-32 px-24"
+              }`}
+              ref={sectionTestimonialRef}
+            >
+              <div className="testimonial relative">
+                <div className="w-full animation-scroll-fade-in-left">
+                  <Title className="text-white text-5xl font-bold leading-tight mb-20">
+                    Testimonials
+                  </Title>
+                </div>
+                <div className="w-full animation-scroll-fade-in-right">
+                  <TestimonialContainer>
+                    <div className="monial-container">
+                      <Slider {...TestimonialSliderSettings}>
+                        {testimonials?.map((testimonial) => (
+                          <Testimonial
+                            avatar={testimonial.avatar}
+                            key={testimonial.id}
+                            name={testimonial.name}
+                            description={testimonial.description}
+                          />
+                        ))}
+                      </Slider>
+                    </div>
+                  </TestimonialContainer>
+                </div>
               </div>
             </div>
           </div>
@@ -278,7 +308,9 @@ const LatestContentSection = () => {
     <>
       <Background style={{ backgroundImage: `url(${leafBg})` }}>
         <div
-          className="animation-scroll-fade-in delay4 py-36 px-40"
+          className={`animation-scroll-fade-in delay4 max-w-[1440px] mx-auto ${
+            isMobile ? "px-8 py-14" : isTablet ? "px-14 py-24" : "py-32 px-24"
+          }`}
           ref={sectionPlantRef}
         >
           <Title>Latest Updates</Title>
@@ -319,7 +351,7 @@ const LatestContentSection = () => {
             </ItemContainer>
           </div>
           <Title>Ready for you</Title>
-          <Container className="animation-scroll-fade-in">
+          <div className={`animation-scroll-fade-in `}>
             <div className="readyFor">
               <Slider {...PlantSliderSettings}>
                 {plants?.map((plant, index) => (
@@ -332,34 +364,37 @@ const LatestContentSection = () => {
                 ))}
               </Slider>
             </div>
-          </Container>
+          </div>
         </div>
-
-        <div
-          className="relative overflow-hidden bg-[#222321aa] pt-20 px-40 "
-          ref={sectionTestimonialRef}
-        >
-          <div className="testimonial relative">
-            <div className="w-full animation-scroll-fade-in-left">
-              <Title className="text-white text-5xl font-bold leading-tight mb-20">
-                Testimonials
-              </Title>
-            </div>
-            <div className="w-full animation-scroll-fade-in-right">
-              <TestimonialContainer>
-                <div className="monial-container">
-                  <Slider {...TestimonialSliderSettings}>
-                    {testimonials?.map((testimonial) => (
-                      <Testimonial
-                        avatar={testimonial.avatar}
-                        key={testimonial.id}
-                        name={testimonial.name}
-                        description={testimonial.description}
-                      />
-                    ))}
-                  </Slider>
-                </div>
-              </TestimonialContainer>
+        <div className="bg-black/20">
+          <div
+            className={`relative overflow-hidden  max-w-[1440px] mx-auto ${
+              isMobile ? "px-8 py-14" : isTablet ? "px-14 py-24" : "py-32 px-24"
+            }`}
+            ref={sectionTestimonialRef}
+          >
+            <div className="testimonial relative">
+              <div className="w-full animation-scroll-fade-in-left">
+                <Title className="text-white text-5xl font-bold leading-tight mb-20">
+                  Testimonials
+                </Title>
+              </div>
+              <div className="w-full animation-scroll-fade-in-right">
+                <TestimonialContainer>
+                  <div className="monial-container">
+                    <Slider {...TestimonialSliderSettings}>
+                      {testimonials?.map((testimonial) => (
+                        <Testimonial
+                          avatar={testimonial.avatar}
+                          key={testimonial.id}
+                          name={testimonial.name}
+                          description={testimonial.description}
+                        />
+                      ))}
+                    </Slider>
+                  </div>
+                </TestimonialContainer>
+              </div>
             </div>
           </div>
         </div>
@@ -418,27 +453,6 @@ const Title = styled.div`
   }
 `;
 
-const Container = styled.div`
-  padding: 20px 0 0px;
-  margin: 0 auto;
-
-  @media (min-width: 1440px) {
-    width: 1174px;
-  }
-
-  @media (min-width: 593px) and (max-width: 1439px) {
-    width: 100%;
-  }
-
-  @media (max-width: 592px) {
-    width: 310px;
-  }
-
-  @media (max-width: 592px) {
-    padding: 61px 0 109px;
-  }
-`;
-
 const ItemContainer = styled.div`
   margin-bottom: 112px;
   @media (max-width: 592px) {
@@ -481,30 +495,6 @@ const UpdateItem = styled.div`
 const TestimonialContainer = styled.div`
   border-radius: 10px;
   color: white;
-
-  .plant-container {
-    margin-top: 70px;
-
-    li.slide {
-      min-width: fit-content !important;
-    }
-
-    @media (max-width: 592px) {
-      margin-top: 52px;
-    }
-  }
-
-  .monial-container {
-    margin-top: 0px;
-
-    li.slide {
-      min-width: fit-content !important;
-    }
-
-    @media (max-width: 592px) {
-      margin-top: 52px;
-    }
-  }
 `;
 
 const MobileTestimonialContainer = styled.div`

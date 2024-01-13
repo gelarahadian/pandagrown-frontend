@@ -8,11 +8,13 @@ const MyGreenButton = ({
   text,
   icon,
   dark = false,
+  light = false,
   className,
 }: {
   text: string;
   icon?: any;
   dark?: boolean;
+  light?: boolean;
   className?: string;
 }) => {
   const { user } = useContext(MyAuthContext);
@@ -21,7 +23,15 @@ const MyGreenButton = ({
       to={user?.token ? "/greenhouse" : "/login"}
       className={`${className} `}
     >
-      <div className={`${dark ? " bg-[#041d04]" : "bg-[#059033]"}`}>
+      <div
+        className={`${
+          dark
+            ? " bg-[#041d04] text-white"
+            : light
+            ? "bg-white text-black "
+            : "bg-[#059033] text-white"
+        }`}
+      >
         {icon && <img src={icon} alt="maple" />}
         {text}
       </div>
@@ -39,7 +49,6 @@ const GreenButton = styled(Link)`
     align-items: center;
     gap: 10px;
     border-radius: 999px;
-    color: #fff;
     font-size: 20px;
     font-weight: 700;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);

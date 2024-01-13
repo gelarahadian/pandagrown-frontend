@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { CartItemInfo } from "pages/Dashboard/CloneShop";
+import { CartItemInfo } from "pages/Dashboard/manage/CloneShop";
 import { NavLink } from "react-router-dom";
 import { MyAuthContext } from "../../../context/AuthContext";
 

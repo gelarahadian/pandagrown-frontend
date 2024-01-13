@@ -5,8 +5,10 @@ import MyWallet from "components/common/MyWallet";
 import { MyAuthContext } from "context/AuthContext";
 
 // import avatarImg from 'assets/images/sample-avatar.jpg';
-import { MdHomeFilled, MdWarehouse } from "react-icons/md";
+import { MdHomeFilled, MdInventory, MdWarehouse } from "react-icons/md";
 import { FaShoppingCart, FaClock, FaMapMarkerAlt } from "react-icons/fa";
+import { IoStorefront } from "react-icons/io5";
+import { RiP2PFill } from "react-icons/ri";
 import SidebarBottom from "../common/SidebarBottom";
 
 function Sidebar() {
@@ -31,21 +33,35 @@ function Sidebar() {
       <div className="mt-8 mb-11">
         <MyWallet />
       </div>
-      <hr className="color-gray mb-10" />
       <div className="ml-5">
-        <NavLink
-          to="/dashboard/manage/greenhouse"
-          className="text-xl mt-6 flex "
-        >
-          <MdHomeFilled size={20} className="mr-4 my-auto" />
-          <span>My Green house</span>
-        </NavLink>
         <NavLink
           to="/dashboard/manage/cloneshop"
           className="text-xl mt-6 flex "
         >
           <FaShoppingCart size={20} className="mr-4 my-auto" />
           <span>Clone Shop</span>
+        </NavLink>
+        <NavLink to="/dashboard/manage/market" className="text-xl mt-6 flex ">
+          <IoStorefront size={20} className="mr-4 my-auto" />
+          <span>Market</span>
+        </NavLink>
+        <NavLink
+          to="/dashboard/manage/inventory"
+          className="text-xl mt-6 flex "
+        >
+          <MdInventory size={20} className="mr-4 my-auto" />
+          <span>Inverntory</span>
+        </NavLink>
+        <NavLink to="/dashboard/manage/p2p" className="text-xl mt-6 flex ">
+          <RiP2PFill size={20} className="mr-4 my-auto" />
+          <span>P2P</span>
+        </NavLink>
+        <NavLink
+          to="/dashboard/manage/greenhouse"
+          className="text-xl mt-6 flex "
+        >
+          <MdHomeFilled size={20} className="mr-4 my-auto" />
+          <span>My Green house</span>
         </NavLink>
         <NavLink to="/dashboard/manage/warehouse" className="text-xl mt-6 flex">
           <MdWarehouse size={20} className="mr-4 my-auto " />

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { CartItemInfo } from "pages/Dashboard/CloneShop";
+import { CartItemInfo } from "pages/Dashboard/manage/CloneShop";
 import { FaTrashAlt } from "react-icons/fa";
 
 interface CartItemProps {

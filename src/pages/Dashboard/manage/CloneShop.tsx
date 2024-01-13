@@ -79,7 +79,7 @@ const CloneShop = () => {
   const [cloneContainerWidth, setCloneContainerWidth] = useState<number>(0);
   const myCloneContainerRef = useRef<HTMLDivElement | null>(null);
 
-  const column = cloneContainerWidth < 800;
+  const column = cloneContainerWidth < 720;
 
   // const addItem = (newItem: Item) => {
   //   setItems(prevItems => [...prevItems, newItem]);
@@ -802,7 +802,7 @@ const CloneShop = () => {
                 <ul
                   className={`grid ${
                     column ? "grid-cols-1" : "grid-cols-2"
-                  }grid-cols-2 gap-5 mb-6 list-none `}
+                  } gap-5 mb-6 list-none `}
                 >
                   {Array.from({ length: 6 }).map((_, index) => (
                     <li

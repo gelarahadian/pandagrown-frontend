@@ -17,9 +17,11 @@ import joinIcon from "assets/icons/logo-join.png";
 import { CoinInfo } from "types/common";
 import { config } from "config";
 import api from "utils/api";
+import { useTabletContext } from "context/TabletContext";
 
 const HowItWorks = () => {
   const isMobile = useMobileContext();
+  const isTablet = useTabletContext();
   const buttonText = isMobile ? "Join Now" : "Join the Green Revolution";
   const [coins, setCoins] = useState<CoinInfo[]>();
 
@@ -72,17 +74,26 @@ const HowItWorks = () => {
     <>
       <IntroSection>
         <div className="intro-div">
-          {!isMobile && <img src={topleftImg} className="topleft" />}
-          {isMobile && <img src={mainImgMobile} className="main-mobile" />}
-          <div>
-            <label>Involved in the most profitable green economy.</label>
+          <img src={topleftImg} className="topleft z-10" />
+          <div className="flex-1 p-20">
+            <label className="text-4xl lg:text-5xl  xl:text-6xl 2xl:text-7xl">
+              Involved in the most profitable green economy.
+            </label>
+            {isMobile && <img src={mainImg} className="w-full mt-10" />}
             <p>
               In a world where sustainable living and investing in the future of
               our planet are becoming increasingly crucial, the Pandagrown
               Project emerges as a beacon of hope.
             </p>
           </div>
-          {!isMobile && <img src={mainImg} className="main" />}
+          {!isMobile && (
+            <div className=" w-[420px] h-[420px] xl:w-[520px] xl:h-[520px] p-6 relative">
+              <img
+                src={mainImg}
+                className="w-full h-full rounded-2xl object-cover"
+              />
+            </div>
+          )}
         </div>
       </IntroSection>
       <Container>
@@ -240,9 +251,14 @@ const HowItWorks = () => {
         </div>
         <hr className="divider" />
         <div className="how-container">
-          <div className={isMobile ? "" : "green-box"}>
-            {isMobile && <div className="small-green-box" />}
-            <img src={bitcoinImg} />
+          <div
+            className={
+              isTablet
+                ? "bg-[#041d044d] px-7 py-10 rounded-xl mt-[264px] space-y-10"
+                : "green-box"
+            }
+          >
+            <img src={bitcoinImg} className="mt-[-264px] mx-auto" />
             <div>
               <label className="title">How Payment Works?</label>
               <div className="section">
@@ -353,7 +369,7 @@ const HowItWorks = () => {
           )}
           <div className="button-container">
             <MyGreenButton
-              text={buttonText}
+              text={isMobile ? "Join Now" : "Join the Green Revolution"}
               icon={joinIcon}
               dark
               className="wide"
@@ -369,45 +385,40 @@ export default HowItWorks;
 
 const IntroSection = styled.div`
   display: flex;
+  margin-right: 56px;
+  margin-left: 56px;
 
   .intro-div {
     border-radius: 13px;
     background: rgba(4, 29, 4, 0.3);
     margin-left: auto;
     margin-right: auto;
+    margin-top: 180px;
+    margin-bottom: 38px;
+    position: relative;
+    max-width: 1440px;
+    display: flex;
 
-    @media (min-width: 1400px) {
-      margin-top: 180px;
-      margin-bottom: 38px;
+    img.main {
+      max-width: 530px;
+      max-height: 503px;
+      margin: 24px 33px 24px;
+    }
+
+    div {
       position: relative;
-      width: 1376px;
-      height: 551px;
-      display: flex;
+      z-index: 2;
 
-      img.main {
-        width: 530px;
-        height: 503px;
-        margin: 24px 33px 24px 100px;
+      label {
+        font-weight: 700;
+        line-height: 1.06;
       }
 
-      div {
-        margin-top: 87px;
-        margin-left: 76px;
-        position: relative;
-        z-index: 2;
-
-        label {
-          font-size: 75px;
-          font-weight: 700;
-          line-height: 1.06;
-        }
-
-        p {
-          margin-top: 37px;
-          font-size: 20px;
-          font-weight: 400;
-          line-height: 1.7;
-        }
+      p {
+        margin-top: 37px;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 1.7;
       }
     }
 

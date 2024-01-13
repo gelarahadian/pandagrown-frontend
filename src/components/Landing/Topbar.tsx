@@ -7,6 +7,7 @@ import MobileFloatButton from "components/common/MobileFloatButton";
 import MyGreenButton from "components/Landing/Home/MyGreenButton";
 import LanguageSelect from "components/Landing/LanguageSelect";
 import logo from "assets/logo-sign2.png";
+import logo_white from "assets/logo-sign.png";
 import mlogo from "assets/logo-main.svg";
 import { MyAuthContext } from "context/AuthContext";
 import { useContext } from "react";
@@ -22,6 +23,11 @@ const Topbar = ({
   const isTablet = useTabletContext();
   const { user } = useContext(MyAuthContext);
 
+  const isTwoNavs =
+    location.pathname.includes("/term") ||
+    location.pathname.includes("/whitepaper") ||
+    location.pathname.includes("/lisensi");
+
   const isThreeNavs =
     location.pathname.includes("/how") || location.pathname.includes("/faq");
 
@@ -30,7 +36,7 @@ const Topbar = ({
       <AbsContainer>
         <Container className="items-center">
           <Link to="/">
-            <img src={mlogo} style={{ width: "68px" }}></img>
+            <img src={isTwoNavs ? logo_white : logo}></img>
           </Link>
           <div className="mobile-btn-side ml-auto">
             <MobileFloatButton onClick={() => setShowSidebar(true)} />
@@ -43,22 +49,62 @@ const Topbar = ({
   if (isTablet) {
     return (
       <AbsContainer>
-        <Container className="items-center">
+        <Container
+          className={`items-center ${isThreeNavs && "flex justify-between"} ${
+            isTwoNavs && "text-white"
+          }`}
+        >
           <Link to="/">
-            <img className="logo" src={logo}></img>
+            <img className="logo" src={isTwoNavs ? logo_white : logo}></img>
           </Link>
+          {isThreeNavs && (
+            <div className="navs">
+              <Link
+                to="/"
+                className={location.pathname == "/" ? "active" : "text-black"}
+              >
+                Home
+              </Link>
+              <Link
+                to="/how"
+                className={
+                  location.pathname == "/how" ? "active" : "text-black"
+                }
+              >
+                How it works
+              </Link>
+              <Link
+                to="/faq"
+                className={
+                  location.pathname == "/faq" ? "active" : "text-black"
+                }
+              >
+                FAQ
+              </Link>
+            </div>
+          )}
           <div className="right">
             <div className="navs">
-              {/* <Link to="/how" className={location.pathname == '/how' ? "active" : ''}>
-              How it works</Link>
-            <Link to="/faq" className={location.pathname == '/faq' ? "active" : ''}>
-              FAQ</Link> */}
-              <Link to="/signup" className="-mt-8">
+              {isTwoNavs && (
+                <Link
+                  to="/"
+                  className={`${
+                    location.pathname == "/" ? "active" : ""
+                  } text-white`}
+                >
+                  Home
+                </Link>
+              )}
+              {/* <Link to="/signup" className="-mt-8">
                 Sign Up
-              </Link>
-              <MyGreenButton text="Login" dark />
+              </Link> */}
+              {isThreeNavs ? (
+                <MyGreenButton text="Join Now" icon={joinIcon} dark />
+              ) : (
+                <MyGreenButton text="Login" light />
+              )}
               <Language>
-                <LanguageSelect isSide={false} />
+                <LanguageSelect isSide={false} bgWhite={isTwoNavs} />
               </Language>
             </div>
           </div>
@@ -70,25 +116,30 @@ const Topbar = ({
   return (
     <AbsContainer>
       <Container
-        className={`items-center ${isThreeNavs && "flex justify-between"}`}
+        className={`items-center ${isThreeNavs && "flex justify-between"} ${
+          isTwoNavs && "text-white"
+        }`}
       >
         <Link to="/">
-          <img className="logo" src={logo}></img>
+          <img className="logo" src={isTwoNavs ? logo_white : logo}></img>
         </Link>
         {isThreeNavs && (
           <div className="navs">
-            <Link to="/" className={location.pathname == "/" ? "active" : ""}>
+            <Link
+              to="/"
+              className={location.pathname == "/" ? "active" : "text-black"}
+            >
               Home
             </Link>
             <Link
               to="/how"
-              className={location.pathname == "/how" ? "active" : ""}
+              className={location.pathname == "/how" ? "active" : "text-black"}
             >
               How it works
             </Link>
             <Link
               to="/faq"
-              className={location.pathname == "/faq" ? "active" : ""}
+              className={location.pathname == "/faq" ? "active" : "text-black"}
             >
               FAQ
             </Link>
@@ -98,62 +149,87 @@ const Topbar = ({
           <div className="navs">
             {!user?.token ? (
               <>
-                {!isThreeNavs && (
+                {isTwoNavs && (
+                  <Link
+                    to="/"
+                    className={`${
+                      location.pathname == "/" ? "active" : ""
+                    } text-white`}
+                  >
+                    Home
+                  </Link>
+                )}
+
+                {!isThreeNavs && !isTwoNavs && (
                   <>
                     <Link
                       to="/"
-                      className={location.pathname == "/" ? "active" : ""}
+                      className={`${
+                        location.pathname == "/" ? "active" : ""
+                      } text-black`}
                     >
                       Home
                     </Link>
                     <Link
                       to="/lisensi"
-                      className={
+                      className={`${
                         location.pathname == "/lisensi" ? "active" : ""
-                      }
+                      } text-black`}
                     >
                       Lisensi
                     </Link>
                     <Link
                       to="/whitepaper"
-                      className={
+                      className={`${
                         location.pathname == "/whitepaper" ? "active" : ""
-                      }
+                      } text-black`}
                     >
                       Whitepaper
                     </Link>
                     <Link
                       to="/terms"
-                      className={location.pathname == "/terms" ? "active" : ""}
+                      className={`${
+                        location.pathname == "/terms" ? "active" : ""
+                      } text-black`}
                     >
                       Terms
                     </Link>
                     <Link
                       to="/how"
-                      className={location.pathname == "/how" ? "active" : ""}
+                      className={`${
+                        location.pathname == "/how" ? "active" : ""
+                      } text-black`}
                     >
                       How it works
                     </Link>
                     <Link
                       to="/faq"
-                      className={location.pathname == "/faq" ? "active" : ""}
+                      className={`${
+                        location.pathname == "/faq" ? "active" : ""
+                      } text-black`}
                     >
                       FAQ
                     </Link>
-                    <Link to="/signup">Sign up</Link>
+                    <Link to="/signup" className="text-black">
+                      Sign up
+                    </Link>
                   </>
                 )}
                 {isThreeNavs ? (
                   <MyGreenButton text="Join Now" icon={joinIcon} dark />
                 ) : (
-                  <MyGreenButton text="Login" dark />
+                  <MyGreenButton
+                    text="Login"
+                    light={isTwoNavs}
+                    dark={!isTwoNavs}
+                  />
                 )}
               </>
             ) : (
               <MyGreenButton text="MyGreenHouse" />
             )}
             <Language>
-              <LanguageSelect isSide={false} />
+              <LanguageSelect isSide={false} bgWhite={isTwoNavs} />
             </Language>
           </div>
         </div>
@@ -166,9 +242,8 @@ export default Topbar;
 
 const AbsContainer = styled.div`
   position: absolute;
-  top: 24px;
   width: 100%;
-  padding: 0 24px;
+  padding: 24px 24px 0;
 `;
 
 const Container = styled.div`
@@ -202,10 +277,8 @@ const Container = styled.div`
 
     a {
       margin: auto 0 auto 81px;
-      color: black;
     }
     a.active {
-      color: #041d04;
       font-weight: bold;
     }
     a:first-child {

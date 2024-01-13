@@ -11,6 +11,7 @@ import { IoMdListBox } from "react-icons/io";
 import "react-toastify/dist/ReactToastify.css";
 import NavbarHide from "assets/mobile/navbar-hide.png";
 import NavbarShow from "assets/mobile/navbar-show.png";
+import { useTabletContext } from "context/TabletContext";
 
 interface NavbarProps {
   onHideNavbar: () => void;
@@ -22,6 +23,7 @@ const Navbar: React.FC<NavbarProps> = (props) => {
   const { isHideNavbar, onHideNavbar, showNavbar } = props;
   const { user } = useContext(MyAuthContext);
   const isMobile = useMobileContext();
+  const isTablet = useTabletContext();
   const location = useLocation();
 
   const getActiveClassName = (type: number) => {
@@ -64,10 +66,11 @@ const Navbar: React.FC<NavbarProps> = (props) => {
       ) : (
         <div
           className={`${isMobile ? "navbar-mobile" : "navbar"} ${
-            !isMobile &&
-            (showNavbar
+            isMobile || isTablet
               ? "translate-x-[0] ease-in"
-              : "translate-x-[-100%] ease-out")
+              : showNavbar
+              ? "translate-x-0 ease-in"
+              : "translate-x-[-100%] ease-out"
           } transition-all duration-200 bg-white flex flex-col justify-between`}
         >
           <div>

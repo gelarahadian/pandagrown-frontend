@@ -126,11 +126,6 @@ function GreenHouse() {
             <LoadingSpinner />
           ) : (
             <div>
-              <div className="w-1/2 text-left">
-                <label className="text-4xl font-bold mb-2">
-                  My Green house
-                </label>
-              </div>
               <div className="w-full flex px-8 mt-7 mb-5">
                 <div className="relative flex-1 pr-2">
                   <input

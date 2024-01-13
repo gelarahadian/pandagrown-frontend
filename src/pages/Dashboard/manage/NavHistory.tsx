@@ -18,7 +18,7 @@ import { config } from "config";
 import "styles/deposit.scss";
 import SidebarHistory from "components/Layout/SidebarHistory";
 import TabletSidebarHistory from "components/Layout/tablet/TabletSidebarHistory";
-import { formatNumber } from "../../utils/common";
+import { formatNumber } from "../../../utils/common";
 import arrowUp from "assets/icons/Arrow - Up 2.svg";
 import arrowDown from "assets/icons/Arrow - Down 2.svg";
 

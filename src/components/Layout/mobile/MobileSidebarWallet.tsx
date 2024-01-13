@@ -8,6 +8,7 @@ import { Scrollbars } from "rc-scrollbars";
 // import avatarImg from 'assets/images/sample-avatar.jpg';
 // import { MdSettings } from "react-icons/md";
 import {
+  FaAngleLeft,
   FaFolderMinus,
   FaListAlt,
   FaMapMarkerAlt,
@@ -52,17 +53,16 @@ const MobileSidebarWallet: React.FC<MobileSidebarWalletProps> = (props) => {
               </div>
             </div>
           </div>
-          <div className="w-1/5 text-right">
-            <MobileFloatButton onClick={onHideSidebar} />
+          <div className="absolute top-8 left-8 text-white text-right cursor-pointer">
+            <FaAngleLeft className="w-6 h-6" onClick={onHideSidebar} />
           </div>
         </div>
         <div className="mt-8 mb-11">
           <MyWallet />
         </div>
-        <hr className="text-gray mb-10" />
         <div className="ml-5 pb-8">
           <NavLink
-            to="/deposit"
+            to="/dashboard/settings/deposit"
             className="text-md mt-6 flex"
             onClick={onHideSidebar}
           >
@@ -70,7 +70,7 @@ const MobileSidebarWallet: React.FC<MobileSidebarWalletProps> = (props) => {
             <span>Deposit</span>
           </NavLink>
           <NavLink
-            to="/withdrawal"
+            to="/dashboard/settings/withdrawal"
             className="text-md mt-6 flex"
             onClick={onHideSidebar}
           >
@@ -79,7 +79,7 @@ const MobileSidebarWallet: React.FC<MobileSidebarWalletProps> = (props) => {
             <span>Withdrawal</span>
           </NavLink>
           <NavLink
-            to="/history"
+            to="/dashboard/settings/history"
             className="text-md mt-6 flex"
             onClick={onHideSidebar}
           >
@@ -88,7 +88,7 @@ const MobileSidebarWallet: React.FC<MobileSidebarWalletProps> = (props) => {
             <span>Transaction History</span>
           </NavLink>
           <NavLink
-            to="/support"
+            to="/dashboard/settings/support"
             className={`${
               currentPath == "/ticket" ? "active" : ""
             } text-md mt-6 flex`}
@@ -98,7 +98,7 @@ const MobileSidebarWallet: React.FC<MobileSidebarWalletProps> = (props) => {
             <span>Support</span>
           </NavLink>
           <NavLink
-            to="/myticket"
+            to="/dashboard/settings/myticket"
             className="text-md mt-6 flex"
             onClick={onHideSidebar}
           >

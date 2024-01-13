@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import CartItem from "./CartItem";
 import EmptyCart from "./EmptyCart";
-import { CartItemInfo } from "pages/Dashboard/CloneShop";
+import { CartItemInfo } from "pages/Dashboard/manage/CloneShop";
 import { MyAuthContext } from "../../context/AuthContext";
 
 interface MyCartProps {

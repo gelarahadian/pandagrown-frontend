@@ -7,11 +7,11 @@ import { config } from "../../config";
 const MobileSidebar = ({ toggle }: { toggle: () => any }) => {
   return (
     <Container>
-      <Sidebar className="show">
+      <Sidebar className="show text-white">
         <CloseButton
           type="button"
           onClick={toggle}
-          className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+          className="text-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
         >
           <span className="sr-only">Close menu</span>
           <svg
@@ -39,6 +39,27 @@ const MobileSidebar = ({ toggle }: { toggle: () => any }) => {
             Home
           </Link>
           <Link
+            to="/lisensi"
+            onClick={toggle}
+            className={location.pathname == "/lisensi" ? "active" : ""}
+          >
+            Lisensi
+          </Link>
+          <Link
+            to="/whitepaper"
+            onClick={toggle}
+            className={location.pathname == "/whitepaper" ? "active" : ""}
+          >
+            Whitepaper
+          </Link>
+          <Link
+            to={"/terms"}
+            onClick={toggle}
+            className={location.pathname == "/terms" ? "active" : ""}
+          >
+            Terms & Conditions
+          </Link>
+          <Link
             to="/how"
             onClick={toggle}
             className={location.pathname == "/how" ? "active" : ""}
@@ -52,18 +73,10 @@ const MobileSidebar = ({ toggle }: { toggle: () => any }) => {
           >
             FAQ
           </Link>
-          <Link
-            to={config.api.API_URL + "papers/whitepaper.pdf"}
-            onClick={toggle}
-          >
-            Whitepaper
-          </Link>
-          <Link to={"/terms"} onClick={toggle}>
-            Terms & Conditions
-          </Link>
-          <SidebarButton text="Join Now" />
+
+          <SidebarButton text="Join Now" light />
           <div className="pb-8">
-            <LanguageSelect isSide={true} />
+            <LanguageSelect isSide={true} bgWhite={true} />
           </div>
         </div>
       </Sidebar>
@@ -108,7 +121,7 @@ const Container = styled.div`
 `;
 
 const Sidebar = styled.div`
-  background: white;
+  background: #041d04;
   padding-top: 89px;
   height: 100%;
   transition: margin 0.3s ease;
@@ -122,11 +135,11 @@ const Sidebar = styled.div`
     line-height: 131.5%;
     margin-bottom: 36px;
     font-weight: 400;
-    color: black;
+    color: white;
 
     &.active {
       font-weight: 700;
-      color: #059033;
+      color: #0df65a;
     }
   }
 `;

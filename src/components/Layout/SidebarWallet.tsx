@@ -44,7 +44,6 @@ function SidebarWallet() {
       <div className="mt-8 mb-11">
         <MyWallet />
       </div>
-      <hr className="color-gray mb-10" />
       <div className="ml-5">
         <NavLink to="/dashboard/settings/deposit" className="text-xl mt-6 flex">
           <FaFolderMinus size={20} className="mr-4 my-auto" />

@@ -5,6 +5,7 @@ import IconPlant from "assets/icons/icon-plant.png";
 import IconHarvest from "assets/icons/icon-harvest.png";
 import IconProfit from "assets/icons/icon-profit.png";
 import api from "../../utils/api";
+import { NavLink } from "react-router-dom";
 
 const MyWallet = () => {
   const isMobile = useMobileContext();
@@ -15,26 +16,24 @@ const MyWallet = () => {
     const parsedPrice = Number.parseFloat(formattedPrice);
     return parsedPrice.toString();
   };
-
-  // if (true) {
-  //   return (
-  //     <button className="btn-wallet text-xl w-full py-5 rounded-5">Setup My Wallet</button>
-  //   )
-  // }
   return (
     <>
-      <button className="w-full flex h-16 px-5 text-base items-center bg-white/10 border-dashed border rounded ">
-        <span className="w-1/3 font-bold text-left">USD</span>
-        <span className="w-2/3 text-right">
-          {formatNumber(user.balance, 4)}
-        </span>
-      </button>
-      <button className="w-full flex h-16 px-5 mt-3 text-base items-center bg-white/10 border-dashed border rounded">
-        <span className="w-1/3 font-bold text-left">PGA</span>
-        <span className="w-2/3 text-right">
-          {formatNumber(user.pga_balance, 4)}
-        </span>
-      </button>
+      {user.pga_balance === 0 ? (
+        <NavLink to={"/dashboard/settings/deposit"}>
+          <div className="bg-white/10 flex justify-center w-full py-5 border-dashed border rounded">
+            <h1 className="text-xl text-center">Setup My Wallet</h1>
+          </div>
+        </NavLink>
+      ) : (
+        <button className="w-full flex h-16 px-5 mt-3 text-base items-center bg-white/10 ">
+          <span className="w-1/3 font-bold text-left">PGA</span>
+          <span className="w-2/3 text-right">
+            {formatNumber(user.pga_balance, 4)}
+          </span>
+        </button>
+      )}
+      <hr className="text-gray my-10" />
+
       {isMobile ? (
         <div>
           <div className="flex items-center border bg-white border-black/10 rounded-lg my-6 px-3 py-2 ">

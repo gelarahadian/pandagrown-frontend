@@ -23,6 +23,38 @@ const PlantItem = ({ plant, onHoverImage, onOutImage }: Props) => {
 
   if (isMobile) {
     return (
+      <div className="px-3">
+        <Container className="!mx-auto space-y-2 w-full">
+          <div className="flex justify-between items-center">
+            <div className="relative w-[75px] h-[75px] overflow-hidden rounded-full">
+              <img
+                src={plant.cover_img}
+                className="object-cover w-full h-full"
+              />
+            </div>
+            <div>
+              <label className="green">
+                USD {formatNumber(plant.buy_price)}
+              </label>
+              <span className="pt-1">Seed Price (gr)</span>
+            </div>
+          </div>
+          <div className="flex justify-between items-center">
+            <div>
+              <label className="truncate">{plant.name}</label>
+              <span>Available stocks: {formatNumber(plant.stock)}</span>
+            </div>
+            <div style={{ marginTop: "auto", textAlign: "right" }}>
+              <Link to="/signup">Buy</Link>
+            </div>
+          </div>
+        </Container>
+      </div>
+    );
+  }
+
+  return (
+    <div className="px-3">
       <Container className="!mx-auto space-y-2">
         <div className="flex justify-between items-center">
           <div className="relative w-[75px] h-[75px] overflow-hidden rounded-full">
@@ -43,30 +75,7 @@ const PlantItem = ({ plant, onHoverImage, onOutImage }: Props) => {
           </div>
         </div>
       </Container>
-    );
-  }
-
-  return (
-    <Container className="!mx-auto space-y-2">
-      <div className="flex justify-between items-center">
-        <div className="relative w-[75px] h-[75px] overflow-hidden rounded-full">
-          <img src={plant.cover_img} className="object-cover w-full h-full" />
-        </div>
-        <div>
-          <label className="green">USD {formatNumber(plant.buy_price)}</label>
-          <span className="pt-1">Seed Price (gr)</span>
-        </div>
-      </div>
-      <div className="flex justify-between items-center">
-        <div>
-          <label className="truncate">{plant.name}</label>
-          <span>Available stocks: {formatNumber(plant.stock)}</span>
-        </div>
-        <div style={{ marginTop: "auto", textAlign: "right" }}>
-          <Link to="/signup">Buy</Link>
-        </div>
-      </div>
-    </Container>
+    </div>
   );
 };
 
@@ -81,7 +90,6 @@ const Container = styled.div`
 
   @media (min-width: 593px) {
     padding: 27px 34px;
-    width: 376px;
     margin-right: 20px;
     position: relative;
 
@@ -94,14 +102,9 @@ const Container = styled.div`
     }
   }
 
-  @media (min-width: 900px) and (max-width: 1100px) {
-    width: 300px;
-  }
-
   @media (max-width: 592px) {
     padding: 25px 30px 30px 29px;
     height: 225px;
-    width: 315px;
     margin-bottom: 26px;
     position: relative;
 

@@ -65,7 +65,12 @@ const CalculatorSection = () => {
 
   if (isMobile) {
     return (
-      <div ref={sectionCalcRef} className="bg-black py-16 px-8 relative">
+      <div
+        ref={sectionCalcRef}
+        className={`bg-black relative ${
+          isMobile ? "px-8 py-14" : isTablet ? "px-14 py-24" : "py-32 px-24"
+        }`}
+      >
         <div className="mx-auto" style={{ maxWidth: "400px" }}>
           <div className="animation-scroll-fade-in invest-description text-white">
             <h1 className="text-4xl font-bold">Investment Calculator</h1>
@@ -125,7 +130,12 @@ const CalculatorSection = () => {
   if (isTablet) {
     return (
       <Background>
-        <Container ref={sectionCalcRef} className="!block">
+        <Container
+          ref={sectionCalcRef}
+          className={`!block ${
+            isMobile ? "px-8 py-14" : isTablet ? "px-14 py-24" : "py-32 px-24"
+          }`}
+        >
           <div className="invest-description animation-scroll-fade-in">
             <h1>Investment Calculator</h1>
             <p className="text-lg">
@@ -211,7 +221,12 @@ const CalculatorSection = () => {
 
   return (
     <Background>
-      <Container ref={sectionCalcRef}>
+      <Container
+        ref={sectionCalcRef}
+        className={`${
+          isMobile ? "px-8 py-14" : isTablet ? "px-14 py-24" : "py-32 px-24"
+        }`}
+      >
         <div className="invest-description animation-scroll-fade-in">
           <h1>Investment Calculator</h1>
           <p className="text-lg">
@@ -305,25 +320,11 @@ const Background = styled.div`
 `;
 
 const Container = styled.div`
-  padding: 86px 0;
   margin: 0 auto;
   color: white;
   display: flex;
 
-  @media (min-width: 1440px) {
-    width: 1174px;
-  }
-
-  @media (max-width: 1200px) {
-    width: 612px;
-  }
-
-  @media (max-width: 900px) {
-    width: 310px;
-  }
-
   @media (max-width: 592px) {
-    padding: 61px 0 79px;
     display: block;
   }
 

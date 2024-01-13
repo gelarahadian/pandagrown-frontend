@@ -5,8 +5,9 @@ import "styles/flags.scss";
 import "styles/landing.scss";
 import { useState } from "react";
 
-interface MobileSidebarProps {
+interface LanguageSelectProps {
   isSide: boolean;
+  bgWhite?: boolean;
 }
 
 interface LangItemProps {
@@ -23,7 +24,10 @@ const LangItem = ({ icon, name }: LangItemProps) => {
   );
 };
 
-export default function LanguageSelect({ isSide }: MobileSidebarProps) {
+export default function LanguageSelect({
+  isSide,
+  bgWhite,
+}: LanguageSelectProps) {
   const { t, i18n } = useTranslation();
 
   const languageOptions = [
@@ -67,7 +71,7 @@ export default function LanguageSelect({ isSide }: MobileSidebarProps) {
       alignItems: "center",
       border: "0px",
       borderRadius: "100px",
-      background: "transparent",
+      background: bgWhite ? "white" : "transparent",
       // width: '176px',
       fontWeight: "500",
       fontSize: "20px",
@@ -94,7 +98,7 @@ export default function LanguageSelect({ isSide }: MobileSidebarProps) {
       paddingLeft: "30px",
       border: "0px",
       borderRadius: "100px",
-      background: "transparent",
+      background: bgWhite ? "white" : "transparent",
       fontWeight: "500",
       fontSize: "20px",
     }),

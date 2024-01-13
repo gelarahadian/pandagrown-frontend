@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 // import Slider from '@mui/material/Slider';
 import { FaSpinner } from "react-icons/fa";
 import { toast } from "react-toastify";
-import { Item } from "pages/Dashboard/CloneShop";
+import { Item } from "pages/Dashboard/manage/CloneShop";
 import { MdClose } from "react-icons/md";
 import { Scrollbars } from "rc-scrollbars";
 import botanicare from "assets/cloneshop/botanicare.png";

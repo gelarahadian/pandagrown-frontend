@@ -24,9 +24,11 @@ import bgMobilePolicy from "assets/landing/bg-mobile-policy.png";
 import bgMobileConversation from "assets/landing/bg-mobile-conversation.png";
 import bgMobileInvestment from "assets/landing/bg-mobile-investment.png";
 import leafBg from "assets/images/leaf-bg.png";
+import { useTabletContext } from "context/TabletContext";
 
 const AboutSection = () => {
   const isMobile = useMobileContext();
+  const isTablet = useTabletContext();
   const sectionAboutRef = useRef<HTMLDivElement | null>(null);
   const sectionValuesRef = useRef<HTMLDivElement | null>(null);
   const [animationFlags, setAnimationFlags] = useState([
@@ -71,15 +73,17 @@ const AboutSection = () => {
     return (
       <>
         <Background
-          className="relative"
+          className={`relative`}
           style={{ backgroundImage: `url(${leafBg})` }}
         >
           <div
             ref={sectionAboutRef}
-            className="animation-scroll-fade-in mx-auto text-white relative"
-            style={{ maxWidth: "400px", paddingTop: "10%", zIndex: "1" }}
+            className={`animation-scroll-fade-in mx-auto max-w-[1440px] text-white relative ${
+              isMobile ? "px-8 py-14" : isTablet ? "px-14 py-24" : "py-32 px-24"
+            }`}
+            style={{ paddingTop: "10%", zIndex: "1" }}
           >
-            <h3 className="text-3xl font-bold px-5">What is PandaGrown?</h3>
+            <Title className="">What is PandaGrown?</Title>
             <p className="block text-xl pt-5 px-5 font-light leading-10 mb-4">
               Pandagrown is an innovative hi-tech company committed to
               sustainable agriculture, specifically focusing on the cultivation
@@ -171,85 +175,93 @@ const AboutSection = () => {
   return (
     <>
       <Background
-        className="relative"
+        className={`relative `}
         ref={sectionAboutRef}
         style={{ backgroundImage: `url(${leafBg})` }}
       >
-        <div className="animation-scroll-fade-in ">
-          <Title>What is PandaGrown?</Title>
-          <p className="block text-xl pt-2 leading-10">
-            Pandagrown is an innovative hi-tech company committed to sustainable
-            agriculture, specifically focusing on the cultivation of hemp.
-            Pandagrown harnesses the power of blockchain technology, the green
-            economy, and eco-friendly policies in the management of its
-            business.
-          </p>
-          <div className="flex space-x-6 items-center mb-36">
-            <p className="text-base font-bold mt-3">Certified by:</p>
-            <div className="flex space-x-1">
-              <img src={btc2x} alt="btc icon" />
-              <img src={tether} alt="tether icon" />
-              <img src={eos} alt="eos icon" />
-              <img src={tron} alt="tron icon" />
-              <img src={xmlid} alt="xmlid icon" />
+        <div
+          className={`max-w-[1440px] mx-auto ${
+            isMobile ? "px-8 py-14" : isTablet ? "px-14 py-24" : "py-32 px-24"
+          } `}
+        >
+          <div className="animation-scroll-fade-in ">
+            <Title>What is PandaGrown?</Title>
+            <p className="block text-xl pt-2 leading-10">
+              Pandagrown is an innovative hi-tech company committed to
+              sustainable agriculture, specifically focusing on the cultivation
+              of hemp. Pandagrown harnesses the power of blockchain technology,
+              the green economy, and eco-friendly policies in the management of
+              its business.
+            </p>
+            <div className="flex space-x-6 items-center mb-36">
+              <p className="text-base font-bold mt-3">Certified by:</p>
+              <div className="flex space-x-1">
+                <img src={btc2x} alt="btc icon" />
+                <img src={tether} alt="tether icon" />
+                <img src={eos} alt="eos icon" />
+                <img src={tron} alt="tron icon" />
+                <img src={xmlid} alt="xmlid icon" />
+              </div>
             </div>
           </div>
-        </div>
-        <div className="flex flex-col lg:flex-row w-full ">
-          <div className="w-full lg:w-1/3 mb-20 lg:mb-0">
-            <TitleValue className="text-white">Our Values</TitleValue>
-          </div>
-          <div className="w-full lg:w-2/3 grid grid-cols-2 gap-x-28 gap-y-36">
-            <div className="col-span-1 relative animation-scroll-fade-in delay1">
-              <img
-                src={grow}
-                alt="grow icon"
-                className="absolute left-0 -top-14"
-              />
-              <h1 className="font-bold text-2xl mb-2">
-                Sustainable agriculture
-              </h1>
-              <p className="font-normal text-xl">
-                We contributes to a growing industry centered around sustainable
-                and environmentally friendly resources.
-              </p>
+          <div className="flex flex-col lg:flex-row w-full ">
+            <div className="w-full lg:w-1/3 mb-20 lg:mb-0">
+              <TitleValue className="text-white">Our Values</TitleValue>
             </div>
-            <div className="col-span-1 relative animation-scroll-fade-in delay2">
-              <img
-                src={blockchain}
-                alt="blockchain icon"
-                className="absolute left-0 -top-14"
-              />
-              <h1 className="font-bold text-2xl mb-2">Blockchain-based </h1>
-              <p className="font-normal text-xl">
-                Our secure, transparent, and efficient investment model enables
-                investors to get earning returns on their investments.
-              </p>
-            </div>
-            <div className="col-span-1 relative animation-scroll-fade-in delay3">
-              <img
-                src={leaf}
-                alt="leaf icon"
-                className="absolute left-0 -top-14"
-              />
-              <h1 className="font-bold text-2xl mb-2">Eco-conscious policy</h1>
-              <p className="font-normal text-xl">
-                Our commitment to organic farming practices and continuous
-                improvement ensures minimal environmental impact.
-              </p>
-            </div>
-            <div className="col-span-1 relative animation-scroll-fade-in delay4">
-              <img
-                src={bear}
-                alt="bear icon"
-                className="absolute left-0 -top-14"
-              />
-              <h1 className="font-bold text-2xl mb-2">Panda conservation</h1>
-              <p className="font-normal text-xl">
-                We dedicate a portion of our profits to support panda
-                conservation efforts, contribute meaningfully to a better
-                tomorrow.
-              </p>
+            <div className="w-full lg:w-2/3 grid grid-cols-2 gap-x-28 gap-y-36">
+              <div className="col-span-1 relative animation-scroll-fade-in delay1">
+                <img
+                  src={grow}
+                  alt="grow icon"
+                  className="absolute left-0 -top-14"
+                />
+                <h1 className="font-bold text-2xl mb-2">
+                  Sustainable agriculture
+                </h1>
+                <p className="font-normal text-xl">
+                  We contributes to a growing industry centered around
+                  sustainable and environmentally friendly resources.
+                </p>
+              </div>
+              <div className="col-span-1 relative animation-scroll-fade-in delay2">
+                <img
+                  src={blockchain}
+                  alt="blockchain icon"
+                  className="absolute left-0 -top-14"
+                />
+                <h1 className="font-bold text-2xl mb-2">Blockchain-based </h1>
+                <p className="font-normal text-xl">
+                  Our secure, transparent, and efficient investment model
+                  enables investors to get earning returns on their investments.
+                </p>
+              </div>
+              <div className="col-span-1 relative animation-scroll-fade-in delay3">
+                <img
+                  src={leaf}
+                  alt="leaf icon"
+                  className="absolute left-0 -top-14"
+                />
+                <h1 className="font-bold text-2xl mb-2">
+                  Eco-conscious policy
+                </h1>
+                <p className="font-normal text-xl">
+                  Our commitment to organic farming practices and continuous
+                  improvement ensures minimal environmental impact.
+                </p>
+              </div>
+              <div className="col-span-1 relative animation-scroll-fade-in delay4">
+                <img
+                  src={bear}
+                  alt="bear icon"
+                  className="absolute left-0 -top-14"
+                />
+                <h1 className="font-bold text-2xl mb-2">Panda conservation</h1>
+                <p className="font-normal text-xl">
+                  We dedicate a portion of our profits to support panda
+                  conservation efforts, contribute meaningfully to a better
+                  tomorrow.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -264,7 +276,6 @@ const Background = styled.div`
   background-size: cover;
   color: white;
   position: relative;
-  padding: 144px 160px;
 `;
 
 const Container = styled.div`
@@ -310,10 +321,6 @@ const TitleValue = styled.div`
   font-family: Poppins;
   position: relative;
   display: inline-block;
-
-  @media (max-width: 900px) {
-    font-size: 32px;
-  }
 
   &:after {
     content: "";
