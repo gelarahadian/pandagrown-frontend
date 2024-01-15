@@ -12,6 +12,7 @@ import { useTabletContext } from "context/TabletContext";
 import filter from "assets/images/Filter.png";
 
 import { FaCheck } from "react-icons/fa";
+import P2pContainer from "components/P2P/P2pContainer";
 
 const p2p = () => {
   const isTablet = useTabletContext();
@@ -230,6 +231,8 @@ const p2p = () => {
               </div>
             )}
           </div>
+
+          <P2pContainer />
         </div>
         {!isTablet && (
           <>

@@ -1,3 +1,4 @@
+import React, { useContext, useEffect, useState } from "react";
 import { Skeleton } from "@mui/material";
 import ModalPurchase from "components/CloneShop/ModalPurchase";
 import ModalSuccessPurchase from "components/CloneShop/ModalSuccessPurchase";
@@ -8,11 +9,11 @@ import { MyAuthContext } from "context/AuthContext";
 import { useCart } from "context/CartContext";
 import { useMobileContext } from "context/MobileContext";
 import { useTabletContext } from "context/TabletContext";
-import React, { useContext, useEffect, useState } from "react";
 import filter from "assets/images/Filter.png";
 
-import api from "utils/api";
 import { FaCheck } from "react-icons/fa";
+import { useMarket } from "context/MarketContext";
+import MarketContainer from "components/Market/MarketContainer";
 
 const Market = () => {
   const isTablet = useTabletContext();
@@ -36,9 +37,12 @@ const Market = () => {
     onPurchase,
   } = useCart();
 
+  const { handleGetMarket } = useMarket();
+
   useEffect(() => {
     if (user?.token) {
       handleGetCartItems();
+      handleGetMarket();
     }
   }, []);
 
@@ -115,7 +119,7 @@ const Market = () => {
           )}
 
           <div className="w-full flex mt-8 mb-6">
-            <div className="relative flex-1 pr-2">
+            <div className="relative flex-1">
               <input
                 type="input"
                 className="w-full h-12 py-1 pl-10 rounded-md shadow-sm"
@@ -218,7 +222,7 @@ const Market = () => {
                 />
               </div>
             ) : (
-              <div className="md:w-1/4 pl-2">
+              <div className=" pl-2">
                 <select
                   className="w-full bg-white h-12 px-3 rounded-md shadow-sm focus:outline-none"
                   onChange={(e) => setSort(e.target.value)}
@@ -231,6 +235,8 @@ const Market = () => {
               </div>
             )}
           </div>
+
+          <MarketContainer />
         </div>
         {!isTablet && (
           <>

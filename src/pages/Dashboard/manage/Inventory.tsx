@@ -12,6 +12,7 @@ import { useTabletContext } from "context/TabletContext";
 import filter from "assets/images/Filter.png";
 
 import { FaCheck } from "react-icons/fa";
+import InventoryContainer from "components/Inventory/InventoryContainer";
 
 const Inventory = () => {
   const isTablet = useTabletContext();
@@ -230,6 +231,8 @@ const Inventory = () => {
               </div>
             )}
           </div>
+
+          <InventoryContainer />
         </div>
         {!isTablet && (
           <>

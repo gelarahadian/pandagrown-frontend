@@ -18,6 +18,7 @@ import { WagmiConfig } from "wagmi";
 import { RainbowKitProvider } from "@rainbow-me/rainbowkit";
 import { CartProvider } from "context/CartContext";
 import { PlantProvider } from "context/PlantContext";
+import { MarketProvider } from "context/MarketContext";
 const maxMobileWidth = 900;
 const maxTabletWidth = 1440;
 
@@ -153,7 +154,9 @@ function App() {
                 <SettingContext.Provider value={setting}>
                   <PlantProvider>
                     <CartProvider>
-                      <MyRouting user={user} />
+                      <MarketProvider>
+                        <MyRouting user={user} />
+                      </MarketProvider>
                     </CartProvider>
                   </PlantProvider>
                 </SettingContext.Provider>

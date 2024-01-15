@@ -60,7 +60,6 @@ const CloneShop = () => {
     cartItems,
     setCartItems,
     showPurchaseModal,
-    setShowPurchaseModal,
     getPGABalance,
     handleGetCartItems,
     onCheckout,
@@ -68,9 +67,7 @@ const CloneShop = () => {
     onClosePurchase,
     onCloseSuccessPurchase,
     loadingConfirm,
-    setLoadingConfirm,
     showSuccessPurchaseModal,
-    setShowSuccessPurchaseModal,
     onPurchase,
   } = useCart();
 
@@ -569,7 +566,7 @@ const CloneShop = () => {
               </div>
             </div>
           </div>
-          <div className="w-full pr-9 flex mt-8 mb-6">
+          <div className="w-full flex mt-8 mb-6 pr-9">
             <div className="relative w-3/4 pr-2">
               <input
                 type="input"
